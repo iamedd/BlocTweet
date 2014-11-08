@@ -73,11 +73,9 @@ while True:
 				else:
 					bloctweet.inval_syn(args[0])	
 					
-			elif args[0] == 'test':
+			elif args[0] == 'firstrun':
 				bloctweet.init_setup()
-				#bloctweet.logger()
-				# bloctweet.add_user_local(args[1])
-				# bloctweet.add_user_twitter(args[1])
+
 			else:
 				bloctweet.errmsg('Not a valid command, use help for a list of commands')
 			
