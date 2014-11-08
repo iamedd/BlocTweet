@@ -81,6 +81,7 @@ class command:
 
 def get_cmdinfo(value):
 	config = settings()	
+	firstrun = command('firstrun','firstrun','Runs the inital setup')
 	adduser = command('adduser','adduser <username>', 'Adds a contributor to the account')
 	deluser = command('deluser', 'deluser <username>', 'Removes a contributor to the account')
 	dmpost = command('dmpost', 'dmpost <0 = off | 1 = on>', 'Allows contributors to post to the account via DM', '1', config.dm_on)
@@ -93,7 +94,7 @@ def get_cmdinfo(value):
 	start = command('start', 'start', 'Starts BlocTweet')
 	stop = command('stop', 'stop', 'Stops BlocTweet')
 	version = command('version', 'version', 'Displays the version of BlocTweet running')
-	for data in (adduser, deluser, dmpost, hashpost, help, setdmrefresh, sethash, sethashrefresh, signpost, start, stop, version):
+	for data in (firstrun, adduser, deluser, dmpost, hashpost, help, setdmrefresh, sethash, sethashrefresh, signpost, start, stop, version):
 		if data.cmd == value:
 			return data
 
@@ -174,6 +175,7 @@ def inval_syn(cmd):
 def cmd_help(value=None):
 	config = settings()
 	if value is None:
+		help_list(get_cmdinfo('firstrun'))
 		help_list(get_cmdinfo('adduser'))
 		help_list(get_cmdinfo('deluser'))
 		help_list(get_cmdinfo('dmpost'))
